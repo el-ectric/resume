@@ -31,6 +31,11 @@
 % The paracol package lets you typeset columns of text in parallel
 \usepackage{paracol}
 
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
 % Change the font if you want to, depending on whether
 % you're using pdflatex or xelatex/lualatex
 \ifxetexorluatex
@@ -47,8 +52,9 @@
 \fi
 
 % Change the colours if you want to
-\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{SlateGrey}{HTML}{202020}
 \definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkGrey}{HTML}{404040}
 \definecolor{DarkPastelRed}{HTML}{450808}
 \definecolor{PastelRed}{HTML}{8F0D0D}
 \definecolor{GoldenEarth}{HTML}{E7D192}
@@ -59,7 +65,7 @@
 \colorlet{subheading}{PastelRed}
 \colorlet{accent}{PastelRed}
 \colorlet{emphasis}{SlateGrey}
-\colorlet{body}{LightGrey}
+\colorlet{body}{DarkGrey}
 
 % Change some fonts, if necessary
 \renewcommand{\namefont}{\Huge\rmfamily\bfseries}
@@ -130,9 +136,9 @@
 
 \divider
 
-\cvevent{Course Grader}{Georgia Institute of Technology}{Summer 2019}{Atlanta, GA}
+\cvevent{Teaching Assistant}{Georgia Institute of Technology}{Summer 2019}{Atlanta, GA}
 \begin{itemize}
-\item Graded assignments and exams for Georgia Tech’s MATH 3215: Probability \& Statistics
+\item Graded assignments and exams for Georgia Tech’s Math 3215: Probability \& Statistics
 \end{itemize}
 
 % \divider
@@ -148,7 +154,7 @@
 \begin{itemize}
 \item Currently developing interconnected Android, iOS, and Windows tools to increase user input bandwidth when using CAD software
 \item Performed extensive market research by interviewing over 100 engineers; Developed MVP; Filed a provisional patent
-\item Won Georgia Tech CreateX Capstone; Accepted into Georgia Tech StartUp Launch with \$4000 grant; Advanced to Inventure Prize Semi-finals
+\item Won Georgia Tech CreateX Capstone; Awarded \$4000 grant by Georgia Tech StartUp Launch; Advanced to Inventure Prize Semi-finals
 \end{itemize}
 
 \divider
@@ -156,7 +162,7 @@
 \cvevent{Georgia Tech ME 2110 Mechatronics Robot}{Georgia Institute of Technology}{Fall 2018}{}
 \begin{itemize}
 \item Built a robot that competes against others to execute certain mechanical tasks in an arena
-\item In charge of prototyping, electrical components, programming, and report writing
+\item Team Leader in charge of prototyping, electrical components, programming, and report writing
 \item Placed 5th out of 59 teams
 \end{itemize}
 
@@ -193,8 +199,8 @@
 \cvtag{SQL}\\
 \cvtag{HTML}
 \cvtag{CSS}
-\cvtag{NI LabVIEW}
-\cvtag{IDA Pro}
+\cvtag{LabVIEW}
+\cvtag{IDA Pro}\\
 \cvtag{Ollydbg}
 \cvtag{LaTeX}
 \cvtag{Solidworks}
