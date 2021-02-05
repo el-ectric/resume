@@ -301,7 +301,7 @@
 
 % v1.1.4: fixes inconsistent font size
 \newcommand{\cvevent}[4]{%
-  {\textbf{\large\color{emphasis}#1}\par}
+  {\textbf{\large\color{accent}#1}\par} %emphasis
   \smallskip\normalsize
   \ifstrequal{#2}{}{}{
   \textbf{\color{accent}#2}\par
@@ -312,7 +312,7 @@
 }
 
 \newcommand{\unievent}[5]{%
-  {\textbf{\large\color{emphasis}#1}\par}
+  {\textbf{\large\color{accent}#1}\par}
   \smallskip\normalsize
   \ifstrequal{#2}{}{}{
   \textbf{\color{accent}#2}\par
@@ -343,6 +343,11 @@
 
 \newcommand{\cvtag}[1]{%
   \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
+}
+
+\newcommand{\skilltitle}[1]{%
+  \smallskip%
+  {\color{accent}\cvsubsectionfont{#1}\par}\medskip
 }
 
 \newcommand{\cvskill}[2]{%
