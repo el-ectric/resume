@@ -311,16 +311,30 @@
   \medskip\normalsize
 }
 
-\newcommand{\unievent}[5]{%
+\newcommand{\unievent}[6]{%
   {\textbf{\large\color{accent}#1}\par}
   \smallskip\normalsize
   \ifstrequal{#2}{}{}{
   \textbf{\color{accent}#2}\par
   \smallskip}
   \ifstrequal{#3}{}{}{{\small\makebox[0.5\linewidth][l]{\faCalendar~#3}}}%
-  \ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker~#4}}}\par
-  \ifstrequal{#5}{}{}{{\small\makebox[0.5\linewidth][l]{\faCalendar~#5}}}\par\vspace{0.1in}
+  \ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker~#4}}}\par\vspace{0.03in}
+  \ifstrequal{#5}{}{}{{\small\makebox[0.5\linewidth][l]{\faCalendar~#5}}}%
+  \ifstrequal{#6}{}{}{{\small\makebox[0.5\linewidth][l]{\faChartBar~#6}}}\par
+  \vspace{0.05in}
+  \medskip\normalsize
+}
 
+\newcommand{\unieventdone}[5]{%
+  {\textbf{\large\color{accent}#1}\par}
+  \smallskip\normalsize
+  \ifstrequal{#2}{}{}{
+  \textbf{\color{accent}#2}\par
+  \smallskip}
+  \ifstrequal{#3}{}{}{{\small\makebox[0.5\linewidth][l]{\faCalendar~#3}}}%
+  \ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker~#4}}}\par\vspace{0.03in}
+  \ifstrequal{#5}{}{}{{\small\makebox[0.5\linewidth][l]{\faChartBar~#5}}}\par
+  \vspace{0.05in}
   \medskip\normalsize
 }
 
