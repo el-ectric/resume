@@ -301,7 +301,7 @@
 
 % v1.1.4: fixes inconsistent font size
 \newcommand{\cvevent}[4]{%
-  {\textbf{\large\color{accent}#1}\par} %emphasis
+  {\large#1\par} %emphasis
   \smallskip\normalsize
   \ifstrequal{#2}{}{}{
   \textbf{\color{accent}#2}\par
@@ -312,7 +312,7 @@
 }
 
 \newcommand{\unievent}[6]{%
-  {\textbf{\large\color{accent}#1}\par}
+  {\large#1\par}
   \smallskip\normalsize
   \ifstrequal{#2}{}{}{
   \textbf{\color{accent}#2}\par
@@ -326,7 +326,7 @@
 }
 
 \newcommand{\unieventdone}[5]{%
-  {\textbf{\large\color{accent}#1}\par}
+  {\large#1\par}
   \smallskip\normalsize
   \ifstrequal{#2}{}{}{
   \textbf{\color{accent}#2}\par
