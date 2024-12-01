@@ -1,55 +1,42 @@
-%%%%%%%%%%%%%%%%%
-% This is an sample CV template created using altacv.cls
-% (v1.3, 10 May 2020) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
-%
-%% It may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2003/12/01 or later.
-%%%%%%%%%%%%%%%%
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
 
-%% If you are using \orcid or academicons
-%% icons, make sure you have the academicons
-%% option here, and compile with XeLaTeX
-%% or LuaLaTeX.
-% \documentclass[10pt,a4paper,academicons]{altacv}
+\documentclass[letterpaper,11pt]{article}
 
-%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
-% \documentclass[10pt,a4paper,normalphoto]{altacv}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\input{glyphtounicode}
 
-\documentclass[10pt,letter,ragged2e,withhyper]{altacv}
-%% AltaCV uses the fontawesome5 and academicons fonts
-%% and packages.
-%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
 
-% Change the page layout if you need to
-\geometry{left=1.2cm,right=1.2cm,top=1.8cm,bottom=1.2cm,columnsep=1cm}
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
 
-% The paracol package lets you typeset columns of text in parallel
-\usepackage{paracol}
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
 
-\tolerance=1
-\emergencystretch=\maxdimen
-\hyphenpenalty=10000
-\hbadness=10000
-
-% Change the font if you want to, depending on whether
-% you're using pdflatex or xelatex/lualatex
-\ifxetexorluatex
-  % If using xelatex or lualatex:
-  \setmainfont{Roboto Slab}
-  \setsansfont{Lato}
-  \renewcommand{\familydefault}{\sfdefault}
-\else
-  % If using pdflatex:
-  \usepackage[rm]{roboto}
-  \usepackage[defaultsans]{lato}
-  % \usepackage{sourcesanspro}
-  \renewcommand{\familydefault}{\sfdefault}
-\fi
+%\usepackage{notomath}
+%\usepackage[T1]{fontenc}
+\usepackage{cochineal}
+\usepackage[cochineal]{newtxmath}
 
 % Change the colours if you want to
 \definecolor{SlateGrey}{HTML}{202020}
@@ -58,240 +45,200 @@
 \definecolor{DarkPastelRed}{HTML}{450808}
 \definecolor{PastelRed}{HTML}{8F0D0D}
 \definecolor{GoldenEarth}{HTML}{E7D192}
+\definecolor{GoldenEarth2}{HTML}{E7C08E}
+\definecolor{Bronze}{HTML}{CD853F}
+\definecolor{RoyalPurple}{HTML}{6F5392}
+\definecolor{DarkCornflowerBlue}{HTML}{2C446f}
 \colorlet{name}{black}
 \colorlet{tagline}{PastelRed}
 \colorlet{heading}{DarkPastelRed}
-\colorlet{headingrule}{GoldenEarth}
+\colorlet{headingrule}{GoldenEarth2}
 \colorlet{subheading}{PastelRed}
 \colorlet{accent}{PastelRed}
 \colorlet{emphasis}{SlateGrey}
 \colorlet{body}{DarkGrey}
 
-% Change some fonts, if necessary
-\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
-\renewcommand{\personalinfofont}{\footnotesize}
-\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
-\renewcommand{\cvsubsectionfont}{\large\bfseries}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+\addtolength{\topmargin}{-.4in}
+\addtolength{\textheight}{1.0in}
 
-% Change the bullets for itemize and rating marker
-% for \cvskill if you want to
-\renewcommand{\itemmarker}{{\small\textbullet}}
-\renewcommand{\ratingmarker}{\faCircle}
+\urlstyle{same}
 
-%% sample.bib contains your publications
-\addbibresource{sample.bib}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
 
-\begin{document}
-\name{Ryan Soedjak}
-\tagline{}
-%% You can add multiple photos on the left or right
-%\photoR{2.8cm}{Globe_High}
-% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\raggedright\large\bfseries\color{heading}
+}{}{0em}{}[{\color{headingrule}\titlerule[1pt] \vspace{-5pt}}]
 
-\personalinfo{%
-  % Not all of these are required!
-  \email{soedjak.ryan@gmail.com}
-  \phone{(417) 319-8687}
-  %\mailaddress{Åddrésş, Street, 00000 Cóuntry}
-  %\location{Seattle, WA}
-  %\homepage{www.homepage.com}
-  %\twitter{@twitterhandle}
-  \linkedin{rsoedjak}
-  \github{el-ectric}
-  %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
-  % \orcid{0000-0000-0000-0000}
-  %% You can add your own arbtrary detail with
-  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
-  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
-  %% Or you can declare your own field with
-  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
-  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
-  % \gitlab{your_id}
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
 }
 
-\makecvheader
-%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
-% \AtBeginEnvironment{itemize}{\small}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      {\color{accent}\textbf{#1}} & {\color{accent}\textit{\small #4}} \\
+      {\color{black}\small #3} & {\textit{\small #2}} \\
+    \end{tabular*}\vspace{-7pt}
+}
 
-%% Set the left/right column width ratio to 6:4.
-\columnratio{0.6}
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.96\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
 
-% Start a 2-column paracol. Both the left and right columns will automatically
-% break across pages if things get too long.
-\begin{paracol}{2}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.96\textwidth}{l@{\extracolsep{\fill}}r}
+      {\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\color{body}
+\begin{center}
+    {\color{heading}\textbf{\Huge Ryan Soedjak}} \\ \vspace{4pt}
+    {\small (417) 319-8687 \hspace{4pt}$/$\hspace{4pt} \href{mailto:soedjak.ryan@gmail.com}{soedjak.ryan@gmail.com} \hspace{4pt}$/$\hspace{4pt} 
+    \href{https://linkedin.com/in/rsoedjak}{linkedin.com/in/rsoedjak} %$|$
+   % \href{https://github.com/...}{\underline{github.com/jake}}
+    }
+\end{center}
 
 
 
-\cvsection{Experience}
 
-\cvevent{Software Engineer I}{Google}{May 2022--March 2023}{Mountain View, CA}
-\begin{itemize}
-  \item C++ developer in Search Logging
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+      {NCR Voyix}{Sep 2023 -- Present}
+      {Software Engineer II}{Atlanta, GA}
+      \resumeItemListStart
+        \resumeItem{Built a RESTful API backend using NestJS to manage identity and application services, integrating Okta for secure identity management}
+        \resumeItem{Developed and maintained Springboot backend responsible for the organization's core authentication, authorization, and resource provisioning services}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Google}{May 2022 -- Mar 2023}
+      {Software Engineer I}{Mountain View, CA}
+      \resumeItemListStart
+        \resumeItem{Developed and maintained internal tools in C++ for Google Search logging}
+        \resumeItem{Led a project to implement automated pre-checks for code changes to Google Search, detecting and preventing logging inconsistencies before deployment, ensuring effective logging}
+        \resumeItem{Participated in on-call rotation to monitor and resolve user issues}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {NCR Corporation}{Jul 2021 -- May 2022}
+      {Software Engineer I}{Atlanta, GA}
+      \resumeItemListStart
+        \resumeItem{Developed and maintained a microservice-based streaming backend using Kafka and Samza to process and store point-of-sale transactions}
+        \resumeItem{Participated in on-call rotation to troubleshoot and resolve urgent technical issues}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Amazon}{May 2020 -- Jul 2020}
+      {AWS Software Development Intern}{Remote}
+      \resumeItemListStart
+        \resumeItem{Created an internal database tool to process and aggregate Cloudfront log data from multiple sources, streamlining debugging and improving on-call efficiency for developers}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+    {Georgia Institute of Technology}{Aug 2017 -- May 2021}
+    {B.S. in Computer Science}{Atlanta, GA}
+    \resumeItemListStart
+    \resumeItem{GPA: 4.00/4.00}
+    \resumeItem{Teaching Assistant for MATH 3215: Probability \& Statistics}
+    \resumeItem{Studied abroad at HKUST (Hong Kong, 2019) and SUSTech (Shenzhen, 2018)}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\color{accent}\textbf{CADe}}{Aug 2020 -- Jun 2021}
+          \resumeItemListStart
+            \resumeItem{Developed Android and Windows applications to enhance user input efficiency in CAD software}
+            \resumeItem{Conducted market research through interviews with over 100 engineers, leading to a provisional patent filing}
+            \resumeItem{Achieved honors, including winning the Georgia Tech CreateX Capstone, receiving a \$4,000 grant from Georgia Tech Startup Launch, and advancing to the final round of the InVenture Prize.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, rightmargin=\leftmargin, label={}]
+    \small{\item{
+      {\color{accent}\textbf{Languages and Frameworks}}{: Java, Springboot, Javascript, Typescript, NestJS, C++, Python, SQL (Postgres), RESTful APIs} \\
+     {\color{accent}\textbf{Tools and Software}}{: Git, Docker, Postman, Kubernetes, Terraform, SonarQube, Google Cloud Platform, Postgres, Redis, Elasticsearch, Jenkins, Github Actions, LaTeX}
+    }}
+ \end{itemize}
+
+ %-----------Awards SKILLS-----------
+\section{Awards}
+\begin{itemize}[leftmargin=0.15in, rightmargin=\leftmargin, label={}]
+   \small{\item{
+     {\color{accent}\textbf{InVenture Prize}}{: Final round, 2021} \\
+    {\color{accent}\textbf{William Lowell Putnam Competition}}{: Top 25\%, 2017}
+   }}
 \end{itemize}
 
-\divider
 
-\cvevent{Software Engineer I}{NCR}{July 2021--May 2022}{Atlanta, GA}
-\begin{itemize}
-\item Worked on streaming-based backend for processing and storing point-of-sale tickets
-\item Used Java, Scala, Kafka, Samza
-\end{itemize}
-
-\divider
-
-\cvevent{AWS Software Development Intern}{Amazon}{May 2020--July 2020}{Remote}
-\begin{itemize}
-\item Created database tool to aggregate log data from Cloudfront
-\item Worked with Java, SQL, and AWS
-\end{itemize}
-
-\divider
-
-\cvevent{Teaching Assistant}{Georgia Institute of Technology}{May 2019--July 2019}{Atlanta, GA}
-\begin{itemize}
-\item Held office hours and graded assignments for MATH 3215: Probability \& Statistics
-%Graded assignments and exams for Georgia Tech’s Math 3215: Probability \& Statistics
-\end{itemize}
-
-% \divider
-
-% \cvevent{Coursework Grader}{Art of Problem Solving}{February 2017--May 2019}{Online}
-% \begin{itemize}
-% \item Guided students on how to improve solution writing in Number Theory, Geometry, Counting \& Probability
-% \end{itemize}
-
-\cvsection{Education}
-
-\unieventdone{B.S. in Computer Science}{Georgia Institute of Technology}{August 2017--May 2021}{Atlanta, GA}{GPA: 4.00}
-
-\studyabroadevent{Hong Kong University of Science and Technology}{Fall 2019}{Hong Kong}
-\studyabroadevent{Southern University of Science and Technology }{Summer 2018}{Shenzhen, China}
-
-
-\switchcolumn
-
-
-%\divider
-
-%\cvevent{ME 2110 Mechatronics Robot}{}{Fall 2018}{}
-%\begin{itemize}
-%\item Built a robot that competes against others to execute certain mechanical tasks in an arena
-%\item Team Leader in charge of prototyping, electrical components, programming, and report writing
-%\item Placed 5th out of 59 teams
-%\end{itemize}
-
-% use ONLY \newpage if you want to force a page break for
-% ONLY the current column
-
-% \cvsection{Publications}
-
-% \nocite{*}
-
-% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
-
-% \divider
-
-% \printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
-
-% \divider
-
-% \printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
-
-%% Switch to the right column. This will now automatically move to the second
-%% page if the content is too long.
-%\switchcolumn
-
-\cvsection{Skills}
-
-\skilltitle{Programming \& Software}
-\cvtag{Python}
-\cvtag{Java}
-\cvtag{Scala}
-\cvtag{C++}
-\cvtag{Kafka}
-\cvtag{Samza}
-\cvtag{SQL}
-\cvtag{HTML}
-\cvtag{CSS}
-\cvtag{Ghidra}
-\cvtag{\LaTeX}
-
-\medskip
-\divider
-
-\skilltitle{Relevant Coursework}
-\cvtag{Machine Learning}
-\cvtag{Database Systems}
-\cvtag{Algorithms}
-\cvtag{Malware Reverse Engineering}
-\cvtag{Linear Algebra}
-\cvtag{Probability \& Statistics}
-\cvtag{Abstract Algebra}
-\cvtag{Number Theory}
-%\cvtag{Game Theory}
-
-%\medskip
-%\divider
-
-%\skilltitle{Languages}
-%\cvtag{English (Fluent)}
-%\cvtag{Indonesian (Beginner)}
-%\cvtag{Japanese (Beginner)}
-
-\medskip
-
-\cvsection{Projects}
-
-\cvevent{CADe}{}{August 2020--June 2021}{}
-\begin{itemize}
-\item Developed interconnected Android, iOS and Windows tools to increase user input bandwidth when using CAD software
-\item Performed extensive market research by interviewing over 100 engineers; Developed MVP; Filed a provisional patent
-\item Won Georgia Tech CreateX Capstone; Awarded \$4000 grant by Georgia Tech StartUp Launch; Participated in Inventure Prize Final Round
-\end{itemize}
-
-%\cvsection{Leadership}
-
-%\cvevent{Volunteer Math Tutor}{}{2013--2017}{Springfield, MO}
-%\begin{itemize}
-%\item Taught Algebra, Number Theory, Combinatorics, Geometry, Trigonometry, and Calculus to local middle and high school students to prepare for math competitions
-%\end{itemize}
-
-\cvsection{Competition Awards}
-
-%\cvachievement{\faTrophy}{Mercer Spring Programming Competition}{2018: 6th Place Team}
-
-%\divider
-
-%\cvachievement{\faTrophy}{Google Games Atlanta}{2018: 4th Place Team}
-
-%\divider
-
-\cvachievement{\faTrophy}{William Lowell Putnam Competition}{2017: Top 30\%}
-
-
-
-%% Yeah I didn't spend too much time making all the
-%% spacing consistent... sorry. Use \smallskip, \medskip,
-%% \bigskip, \vpsace etc to make ajustments.
-%\medskip
-
-
-% \divider
-
-% \cvsection{Referees}
-
-% % \cvref{name}{email}{mailing address}
-% \cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}
-% {Address Line 1\\Address line 2}
-
-% \divider
-
-% \cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}
-% {Address Line 1\\Address line 2}
-
-
-\end{paracol}
-
-
+%-------------------------------------------
 \end{document}
